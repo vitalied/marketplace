@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="login-notice col-sm-12 col-md-6 col-md-offset-6 col-lg-6 col-lg-offset-3">
+      <%= render partial: "shared/notices", locals: { text: notice, alert_class: "alert-success" } %>
+      <%= render partial: "shared/notices", locals: { text: alert, alert_class: "alert-danger" } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="login-form-box col-sm-12 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+      <div class="login-form">
+        <div class="company-logo"></div>
+
+        <div class="hello-text">
+          Welcome back, please log in
+        </div>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="checkbox">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Sign in", class: "button-green btn btn-default btn-block" %>
+          </div>
+        <% end %>
+      </div>
+
+      <% if devise_mapping.recoverable? %>
+        <div class="form-footer-buttons">
+          <div class="button-container">
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
