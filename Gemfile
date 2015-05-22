@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'figaro'
 gem 'config', '~> 1.0.0.beta3'
 
+gem 'kaminari'
+
 gem 'sidekiq'
 gem 'sinatra', require: nil
 
