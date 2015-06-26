@@ -29,6 +29,7 @@ gem 'figaro'
 gem 'config', '~> 1.0.0.beta3'
 
 gem 'devise'
+gem 'cancancan'
 
 gem 'kaminari'
 
