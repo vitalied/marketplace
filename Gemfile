@@ -39,6 +39,11 @@ end
 
 group :development do
   gem 'thin'
+
+  # deploy
+  gem 'mina'
+  gem 'mina-sidekiq', require: false
+  gem 'mina-unicorn', require: false
 end
 
 # Use Unicorn as the app server
