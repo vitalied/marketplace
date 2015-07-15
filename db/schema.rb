@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715111435) do
+ActiveRecord::Schema.define(version: 20150715115729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20150715111435) do
   add_index "quote_companies", ["company_id"], name: "index_quote_companies_on_company_id", using: :btree
   add_index "quote_companies", ["quote_id"], name: "index_quote_companies_on_quote_id", using: :btree
 
+  create_table "quote_users", force: :cascade do |t|
+    t.integer "quote_id"
+    t.string  "first_name", limit: 50
+    t.string  "last_name",  limit: 50
+    t.string  "company",    limit: 100
+    t.string  "email",      limit: 100
+    t.string  "phone",      limit: 20
+  end
+
+  add_index "quote_users", ["quote_id"], name: "index_quote_users_on_quote_id", using: :btree
+
   create_table "quotes", force: :cascade do |t|
     t.string   "number",     limit: 10
     t.datetime "created_at",            null: false
@@ -107,4 +118,5 @@ ActiveRecord::Schema.define(version: 20150715111435) do
   add_foreign_key "products", "companies"
   add_foreign_key "quote_companies", "companies"
   add_foreign_key "quote_companies", "quotes"
+  add_foreign_key "quote_users", "quotes"
 end
