@@ -4,6 +4,8 @@ class Quote < ActiveRecord::Base
   has_many :companies, through: :quote_companies
   has_one :quote_user
   accepts_nested_attributes_for :quote_user
+  has_many :quote_items
+  accepts_nested_attributes_for :quote_items
 
   scope :by_company, ->(company_id) { includes(:quote_companies).where(quote_companies: { company_id: company_id}) }
 
