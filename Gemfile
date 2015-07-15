@@ -34,6 +34,8 @@ gem 'sinatra', require: nil
 
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 
+gem 'bootstrap-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
