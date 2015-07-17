@@ -1,5 +1,10 @@
 class Quote < ActiveRecord::Base
 
+  has_many :quote_companies
+  has_many :companies, through: :quote_companies
+
+  scope :by_company, ->(company_id) { includes(:quote_companies).where(quote_companies: { company_id: company_id}) }
+
   after_create :set_number
 
   def self.default_sort_column
@@ -8,6 +13,7 @@ class Quote < ActiveRecord::Base
 
   def self.search(search, user)
     search_scope = default_scoped
+    search_scope = search_scope.by_company(user.userable_id) if user.company?
 
     if search.present?
       search = "%#{search}%"

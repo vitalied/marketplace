@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715111226) do
+ActiveRecord::Schema.define(version: 20150715111435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 20150715111226) do
 
   add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
   add_index "products", ["type"], name: "index_products_on_type", using: :btree
+
+  create_table "quote_companies", force: :cascade do |t|
+    t.integer  "quote_id"
+    t.integer  "company_id"
+    t.string   "offer_file_name"
+    t.string   "offer_content_type"
+    t.integer  "offer_file_size"
+    t.datetime "offer_updated_at"
+  end
+
+  add_index "quote_companies", ["company_id"], name: "index_quote_companies_on_company_id", using: :btree
+  add_index "quote_companies", ["quote_id"], name: "index_quote_companies_on_quote_id", using: :btree
 
   create_table "quotes", force: :cascade do |t|
     t.string   "number",     limit: 10
@@ -93,4 +105,6 @@ ActiveRecord::Schema.define(version: 20150715111226) do
 
   add_foreign_key "locations", "companies"
   add_foreign_key "products", "companies"
+  add_foreign_key "quote_companies", "companies"
+  add_foreign_key "quote_companies", "quotes"
 end
