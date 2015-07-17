@@ -36,6 +36,8 @@ gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 
 gem 'bootstrap-sass'
 
+gem 'select2-rails', github: 'vitalied/select2-rails', branch: 'upgrade-version-4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
