@@ -34,5 +34,9 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
+group :development do
+  gem 'thin'
+end
+
 # Use Unicorn as the app server
 gem 'unicorn', group: :production
