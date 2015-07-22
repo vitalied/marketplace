@@ -6,11 +6,36 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root "quote_requests#index"
+  root "home#index"
 
   resources :quote_requests, path: :quotes, only: [:index, :show, :new, :create] do
     get :add_network, on: :collection
     match :search, on: :collection, via: [:get, :post]
+  end
+
+  resources :quotes, path: :quote_requests do
+    get :paginate, on: :collection
+    post :upload_offer, on: :member
+  end
+
+  resources :companies do
+    get :paginate, on: :collection
+    get :search, on: :collection
+    post :create_user, on: :member
+  end
+
+  resources :locations do
+    get :paginate, on: :collection
+  end
+
+  resources :users, path: :people do
+    get :paginate, on: :collection
+  end
+  resources :admin_user, path: :people, controller: :users, only: :show
+  resources :company_user, path: :people, controller: :users, only: :show
+
+  resources :products do
+    get :paginate, on: :collection
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
