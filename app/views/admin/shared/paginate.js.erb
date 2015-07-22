@@ -1,0 +1,7 @@
+$('.list-table-container .list-table tbody').append('<%= j render @items %>');
+
+<% if @items.next_page %>
+$('.pagination-container').html('<%= j paginate @items, params: { action: :paginate } %>');
+<% else %>
+$('.pagination').remove();
+<% end %>

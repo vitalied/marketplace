@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="page-navbar cell-bordered col-xs-12">
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to "Main Page", root_path %>
+      </li>
+      <li>
+        <%= t "#{controller_name}.box" %>
+      </li>
+    </ol>
+
+    <%= link_to "", send("#{controller_name}_path"), method: :post, remote: true, class: "add-record-link ico-add pull-right" if can_add_resource? %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="page-content cell-bordered col-xs-12">
+    <div class="page-content-list row">
+      <div class="list-table-container">
+        <%= render "admin/shared/items_list" %>
+      </div>
+
+      <div class="total-overlay text-right">
+        <span class="total-count"><%= @items_count %></span>
+        <span class="total-count-text"><%= @items_count_text %></span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="profile-navbar col-xs-12">
+    <%= link_to "Back", "#", class: "back-link" %>
+
+    <div class="text-center">
+      <%= t "#{controller_name}.one" %>
+      Profile
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="profile-content cell-bordered col-xs-12">
+    <%= render "profile_content" %>
+  </div>
+</div>

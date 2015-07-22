@@ -1,0 +1,42 @@
+<nav class="navbar-header-logo navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div id="navbar" class="collapse navbar-collapse">
+      <% if @show_search %>
+        <%= form_tag send("#{controller_name}_path"), method: :get, class: "search-form navbar-form navbar-left", role: "search" do %>
+          <div class="form-group">
+            <%= hidden_field_tag :sort, params[:sort] %>
+            <%= hidden_field_tag :dir, params[:dir] %>
+            <%= text_field_tag :q, params[:q], class: "search-input form-control input-sm", placeholder: "Search" %>
+            <span class="search-clear"></span>
+          </div>
+        <% end %>
+      <% end %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="logged-user-name dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <%= current_user.full_name %>
+            <%= image_tag("user-no-image.png", class: "user-no-image") %>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <%= link_to current_user.full_name, user_path(current_user), class: "settings-link dropdown-menu-link" %>
+            </li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "logout-link dropdown-menu-link" %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

@@ -1,0 +1,8 @@
+$('.list-table-container .list-table tbody').prepend('<%= j render @item %>');
+
+var total_count = $('.total-count');
+total_count.text(parseInt(total_count.text()) + 1);
+
+$('.profile-panel').html('<%= j render "admin/shared/profile_panel" %>');
+
+$('.best-in-place').best_in_place();

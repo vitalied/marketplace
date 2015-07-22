@@ -1,0 +1,10 @@
+$('.list-table-container').html('<%= j render "admin/shared/items_list" %>');
+$('.total-count').text('<%= @items_count %>');
+$('.total-count-text').text('<%= @items_count_text %>');
+
+$('#sort').val('<%= j params[:sort] %>');
+$('#dir').val('<%= j params[:dir] %>');
+
+$('.profile-panel').html('<%= j render "admin/shared/profile_panel" %>');
+
+$('.best-in-place').best_in_place();

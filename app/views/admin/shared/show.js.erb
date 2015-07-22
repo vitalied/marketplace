@@ -1,0 +1,5 @@
+$('.profile-panel').html('<%= j render "admin/shared/profile_panel" %>');
+
+$('#<%= object_to_param %>').replaceWith('<%= j render_object %>');
+
+$('.best-in-place').best_in_place();

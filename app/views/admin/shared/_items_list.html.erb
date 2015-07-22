@@ -1,0 +1,14 @@
+<table class="list-table table table-hover">
+  <thead>
+    <tr>
+      <%= render "table_columns" %>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @items %>
+  </tbody>
+</table>
+
+<div class="pagination-container">
+  <%= paginate @items, params: { action: :paginate } %>
+</div>
