@@ -1,0 +1,42 @@
+<% if @company %>
+  <div class="profile-info row">
+    <div class="profile-info-label">
+      Name:
+      <span class="profile-info-value">
+        <%= @company.name %>
+      </span>
+    </div>
+  </div>
+
+  <div class="row" data-object-url="<%= company_path(@company) %>">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingDetails">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+              DETAILS
+            </a>
+          </div>
+        </div>
+        <div id="collapseDetails" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetails">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <li>
+                Name
+                <span class="attr-value"><%= in_place_edit(@company, :name) %></span>
+              </li>
+              <li>
+                Description
+                <span class="attr-value"><%= in_place_edit(@company, :description, as: :textarea) %></span>
+              </li>
+              <li>
+                Website
+                <span class="attr-value"><%= in_place_edit(@company, :website) %></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
