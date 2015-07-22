@@ -11,8 +11,11 @@
 // about supported directives.
 //
 //= require jquery2
+//= require jquery-ui/datepicker
 //= require jquery_ujs
 //= require rails.validations
+//= require best_in_place
+//= require best_in_place.jquery-ui
 //= require bootstrap-sprockets
 //= require select2
 //= require_tree .
