@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -35,6 +36,8 @@ gem 'sinatra', require: nil
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 
 gem 'bootstrap-sass'
+
+gem 'best_in_place'
 
 gem 'select2-rails', github: 'vitalied/select2-rails', branch: 'upgrade-version-4'
 
