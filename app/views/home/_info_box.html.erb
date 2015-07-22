@@ -1,0 +1,19 @@
+<% if home_show_box?(box_name) %>
+  <div class="col-sm-4">
+    <%= link_to send("#{box_name}_path") do %>
+      <div class="info-box text-center">
+        <div class="info-box-title">
+          <h4><%= t "#{box_name}.box" %></h4>
+        </div>
+
+        <div class="info-box-content">
+          <div class="info-box-ico <%= box_name %>-ico"></div>
+
+          <div class="info-box-count">
+            <%= send("home_#{box_name}_count") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
