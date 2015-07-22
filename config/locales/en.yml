@@ -20,4 +20,31 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  quotes:
+    one: Quote
+    other: Quotes
+    box: Quotes
+
+  companies:
+    one: Company
+    other: Companies
+    box: Companies
+
+  locations:
+    one: Location
+    other: Locations
+    box: Locations
+
+  products:
+    one: Product
+    other: Product
+    box: Products
+
+  users:
+    one: User
+    other: Users
+    box: People
+
+  admin_users:
+    one: User
+    other: Users
