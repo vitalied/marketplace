@@ -1,0 +1,6 @@
+<tr id="<%= object_to_param(location) %>" data-item-url="<%= location_path(location) %>">
+  <td><%= location.name %></td>
+  <td><%= list_location_address(location) %></td>
+  <td><%= location.company.try(:name) %></td>
+  <td class="right-arrow">&nbsp;</td>
+</tr>

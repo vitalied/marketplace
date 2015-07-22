@@ -1,0 +1,72 @@
+<% if @location %>
+  <div class="profile-info row">
+    <div class="location-info">
+      <div class="location-name">
+        <%= @location.name %>
+      </div>
+
+      <div class="location-address">
+        <%= location_address(@location) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" data-object-url="<%= location_path(@location) %>">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingDetails">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+              DETAILS
+            </a>
+          </div>
+        </div>
+        <div id="collapseDetails" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetails">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <li>
+                Company
+                <span class="attr-value">
+                  <% if current_user.admin? %>
+                    <%= in_place_edit(@location, :company_id, as: :select, collection: hash_options_for_company(@location.company_id),
+                                      data: { search_url: search_companies_path }, inner_class: "select2") %>
+                  <% else %>
+                    <%= @location.company.try(:name) %>
+                  <% end %>
+                </span>
+              </li>
+              <li>
+                Name
+                <span class="attr-value"><%= in_place_edit(@location, :name) %></span>
+              </li>
+              <li>
+                Website
+                <span class="attr-value"><%= in_place_edit(@location, :website) %></span>
+              </li>
+              <li>
+                Address
+                <span class="attr-value"><%= in_place_edit(@location, :address) %></span>
+              </li>
+              <li>
+                City
+                <span class="attr-value"><%= in_place_edit(@location, :city) %></span>
+              </li>
+              <li>
+                State
+                <span class="attr-value"><%= in_place_edit(@location, :state) %></span>
+              </li>
+              <li>
+                ZIP
+                <span class="attr-value"><%= in_place_edit(@location, :zip) %></span>
+              </li>
+              <li>
+                Country
+                <span class="attr-value"><%= in_place_edit(@location, :country) %></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
