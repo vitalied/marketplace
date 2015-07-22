@@ -1,0 +1,98 @@
+<% if @user %>
+  <div class="profile-info row">
+    <div class="profile-info-label">
+      Name:
+      <span class="profile-info-value">
+        <%= @user.full_name %>
+      </span>
+    </div>
+
+    <% if @user.company? %>
+      <div class="profile-info-label">
+        Company:
+        <span class="profile-info-value">
+          <%= @user.company.try(:name) %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row" data-object-url="<%= user_path(@user) %>">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingDetails">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+              DETAILS
+            </a>
+          </div>
+        </div>
+        <div id="collapseDetails" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetails">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <li>
+                Prefix
+                <span class="attr-value"><%= in_place_edit(@user, :prefix) %></span>
+              </li>
+              <li>
+                First Name
+                <span class="attr-value"><%= in_place_edit(@user, :first_name) %></span>
+              </li>
+              <li>
+                Middle Name
+                <span class="attr-value"><%= in_place_edit(@user, :middle_name) %></span>
+              </li>
+              <li>
+                Last Name
+                <span class="attr-value"><%= in_place_edit(@user, :last_name) %></span>
+              </li>
+              <li>
+                Suffix
+                <span class="attr-value"><%= in_place_edit(@user, :suffix) %></span>
+              </li>
+              <li>
+                Title
+                <span class="attr-value"><%= in_place_edit(@user, :title) %></span>
+              </li>
+              <li>
+                Email
+                <span class="attr-value"><%= in_place_edit(@user, :email) %></span>
+              </li>
+              <li>
+                Phone
+                <span class="attr-value"><%= in_place_edit(@user, :phone) %></span>
+              </li>
+              <li>
+                Google+
+                <span class="attr-value"><%= in_place_edit(@user, :google_plus) %></span>
+              </li>
+              <li>
+                LinkedIn
+                <span class="attr-value"><%= in_place_edit(@user, :linked_in) %></span>
+              </li>
+              <% if current_user.admin? %>
+                <li>
+                  Role
+                  <span class="attr-value">
+                    <%= in_place_edit(@user, :type, as: :select, collection: hash_options_for_role,
+                                      display_with: lambda { |role| role_name(role) }) %>
+                  </span>
+                </li>
+                <% if @user.company? %>
+                  <li>
+                    Company
+                    <span class="attr-value">
+                      <%= in_place_edit(@user, :userable_id, as: :select, collection: hash_options_for_company(@user.userable_id),
+                                        data: { search_url: search_companies_path }, inner_class: "select2") %>
+
+                    </span>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
