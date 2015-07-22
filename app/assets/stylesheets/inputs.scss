@@ -1,0 +1,80 @@
+input {
+  font-weight: $semi-bold-font-weight;
+}
+
+.input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+  height: 48px;
+  padding: 12px 16px;
+}
+
+select {
+  font-weight: $normal-font-weight;
+}
+
+div.radio-purple {
+  background: url(image_path("radio-purple.png")) no-repeat;
+  background-size: 41px 13px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 2px;
+  padding: 0;
+  width: 13px;
+  height: 13px;
+  border: none;
+  cursor: pointer;
+
+  &.hover {
+    background-position: -14px 0;
+  }
+
+  &.checked {
+    background-position: -28px 0;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-padding-end: 10px;
+  -moz-padding-end: 10px;
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  background: #ab268c url(image_path("select-arrow.png")) no-repeat right 5px center;
+  border: 1px solid #ab268c;
+  max-width: 65px;
+  padding: 3px 10px 3px 3px;
+  color: #fff;
+  text-align: center;
+  text-indent: 0.01px; /* Removes default arrow from firefox*/
+  text-overflow: ""; /*Removes default arrow from firefox*/ /*My custom style for fonts*/
+}
+
+@media (min-width: $screen-xs-min) {
+  select {
+    -webkit-padding-end: 17px;
+    -moz-padding-end: 17px;
+    -webkit-padding-start: 5px;
+    -moz-padding-start: 5px;
+    background-position: right 7px center;
+    max-width: 190px;
+    padding: 3px 17px 3px 5px;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  select {
+    max-width: 130px;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  select {
+    max-width: 200px;
+  }
+}
+
+.field_with_errors {
+  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+}

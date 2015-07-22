@@ -1,0 +1,121 @@
+.body-sessions,
+.body-passwords {
+  background-color: #f1f2f6;
+}
+
+.login-notice {
+  margin-top: 15px;
+
+  .alert {
+    border-radius: $border-radius-box;
+    padding: 7px 15px;
+
+    h2 {
+      margin: 0;
+      font-size: $font-size-base;
+      font-weight: normal;
+    }
+
+    ul {
+      margin: 5px 0 0;
+      list-style: outside none none;
+    }
+  }
+}
+
+.login-form-box {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: $border-radius-box;
+  border-left: 1px solid rgba(201, 201, 201, 0.6);
+  border-right: 1px solid rgba(201, 201, 201, 0.6);
+  border-bottom: 1px solid rgba(201, 201, 201, 0.6);
+  margin-top: 10%;
+  padding: 0;
+  color: #666;
+
+  .login-form {
+    padding: 10px 35px 0;
+
+    .company-logo {
+      background-size: 151px 146px;
+      display: block;
+      height: 50px;
+      margin: 0 auto;
+      width: 140px;
+    }
+
+    .lock-logo {
+      background: url(image_path("lock.svg")) no-repeat -8px -41px;
+      background-size: 152px 152px;
+      display: block;
+      height: 66px;
+      margin: 0px auto;
+      width: 140px;
+    }
+
+    .hello-text {
+      padding: 15px 0;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .hello-text-info {
+      margin: -13px 0 22px;
+      font-weight: 300;
+      color: #555;
+    }
+
+    input {
+      margin-bottom: 22px;
+
+      &.form-control {
+        border: 1px solid #b7bec7;
+        border-radius: 4px;
+        height: 30px;
+        margin-bottom: 22px;
+        padding: 4px 8px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #555;
+      }
+    }
+
+    .checkbox {
+      margin-top: 0;
+      margin-bottom: 22px;
+
+      input {
+        margin-left: 0;
+      }
+    }
+
+    .button-green {
+      border: medium none;
+      border-radius: 4px;
+      background: #8cc152;
+      color: #FFF;
+    }
+  }
+
+  .form-footer-buttons {
+    margin-top: 10px;
+
+    .button-container {
+      @include border-bottom-radius($border-radius-box);
+      border-bottom: medium none;
+      background: #f5f7fa;
+      vertical-align: middle;
+
+      a {
+        display: block;
+        padding: 5px 6px;
+        text-align: center;
+        color: #7D90AD;
+      }
+    }
+  }
+}

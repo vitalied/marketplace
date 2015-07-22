@@ -1,0 +1,57 @@
+$gray-base:                     #000 !default;
+$gray-dark:                     lighten($gray-base, 26.7%);   // #444
+
+$brand-success:                 #50C57A;
+
+$body-bg:                       #fff;
+
+$link-color:                    $gray-dark;
+$link-hover-decoration:         none;
+
+$font-family-sans-serif:        "Open Sans", sans-serif;
+
+$font-size-footer:              15px;
+$font-size-smallest:            12px;
+$font-size-small:               13px;
+$font-size-base:                14px;
+$font-size-large:               16px;
+$font-size-h4:                  18px;
+$font-size-xl:                  20px;
+$font-size-xxl:                 22px;
+$font-size-xxxl:                24px;
+
+$normal-font-weight:            400;
+$semi-bold-font-weight:         600;
+$headings-font-weight:          600;
+$bold-font-weight:              700;
+
+$border-radius-box:             5px;
+$border-radius-medium-box:      8px;
+$border-radius-big-box:         10px;
+$border-radius-input-small:     8px;
+$border-radius-input:           10px;
+
+$btn-font-weight:               $semi-bold-font-weight;
+$btn-default-color:             #fff;
+$btn-default-bg:                #c1c1c1;
+$btn-default-border:            #c1c1c1;
+$btn-success-bg:                $brand-success;
+$btn-success-border:            $btn-success-bg;
+
+$input-color:                   $gray-dark;
+$input-border:                  #e6e6e6;
+$input-border-focus:            #e6e6e6;
+
+$navbar-height:                 39px;
+$navbar-padding-vertical:       (($navbar-height - 29) / 2);
+$navbar-inverse-bg:             #8c2185;
+$navbar-inverse-border:         #8c2185;
+$navbar-inverse-color:          #fff;
+$navbar-inverse-link-color:     #fff;
+$navbar-inverse-toggle-hover-bg:      transparent;
+$navbar-inverse-toggle-border-color:  transparent;
+
+$panel-body-padding:            0 15px;
+$panel-heading-padding:         0;
+$panel-border-radius:           0;
+$panel-default-text:            #50575d;
