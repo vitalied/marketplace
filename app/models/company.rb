@@ -1,10 +1,12 @@
 class Company < ActiveRecord::Base
 
   has_many :locations
+  has_many :products
   has_many :company_users, as: :userable
 
   scope :by_ids, ->(ids) { where(id: ids) }
   scope :for_hash, ->(ids) { where(id: ids).where.not(name: nil).pluck(:id, :name) }
+  scope :with_network_products, -> { joins(:products).where(products: { category: :network }) }
 
   def self.default_sort_column
     "name"
