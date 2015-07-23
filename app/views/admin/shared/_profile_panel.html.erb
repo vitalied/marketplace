@@ -2,6 +2,19 @@
   <div class="profile-navbar col-xs-12">
     <%= link_to "Back", "#", class: "back-link" %>
 
+    <% if @company && can_add_resource?(CompanyUser) %>
+      <div class="options-dropdown dropdown">
+        <a id="optionsLabel" class="dropdown-toggle" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;</a>
+
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="optionsLabel">
+          <li>
+            <%= link_to "Add user", create_user_company_path(get_item), method: :post, remote: true,
+                        data: { "object-url": company_path(get_item) }, class: "options-next-link" %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="text-center">
       <%= t "#{controller_name}.one" %>
       Profile

@@ -37,6 +37,68 @@
           </div>
         </div>
       </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingCompany">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapseCompany" aria-expanded="true" aria-controls="collapseCompany">
+              PRODUCTS
+            </a>
+          </div>
+        </div>
+        <div id="collapseCompany" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCompany">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <% if @company.products.present? %>
+                <% @company.products.each do |product| %>
+                  <li class="row">
+                    <%= link_to "#", class: "next-link model-block-detailed block", data: { "next-url": product_path(product) } do %>
+                      <div class="model-name">
+                        <%= product.name %>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% else %>
+                <li>None</li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingPeople">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapsePeople" aria-expanded="true" aria-controls="collapsePeople">
+              PEOPLE
+            </a>
+          </div>
+        </div>
+        <div id="collapsePeople" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPeople">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <% if @company.company_users.present? %>
+                <% @company.company_users.each do |user| %>
+                  <li class="row">
+                    <%= link_to "#", class: "next-link model-block-detailed block", data: { "next-url": user_path(user) } do %>
+                      <div class="model-name">
+                        <%= user.full_name %>
+                      </div>
+
+                      <div class="model-desc">
+                        <%= user.title %>
+                      </div>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% else %>
+                <li>None</li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

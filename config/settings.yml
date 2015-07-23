@@ -1,0 +1,150 @@
+products:
+  categories:
+    network:
+      name: Network
+      product_classes:
+        connectivity:
+          name: Connectivity
+          custom_attrs:
+            circuit_type:
+              name: Speed (Circuit Type)
+              values:
+                dsl: DSL
+                cable: Cable
+                t1: T1
+                t3: T3
+                e1: E1
+                e3: E3
+                nxt1: NxT1
+                nxe1: NxE1
+                ds1: DS1
+                ds3: DS3
+                oc3: OC3
+                oc12: OC12
+                oc48: OC48
+                oc192: OC192
+                10mb: 10Mb
+                100mb: 100Mb
+                1gbps: 1Gbps
+                10gbps: 10Gbps
+                40gbps: 40Gbps
+                100gbps: 100Gbps
+            speed:
+              name: Speed (Mbps)
+          product_types:
+            internet: Internet
+            point_to_point: Point-to-Point
+            mpls: MPLS
+            vpls: VPLS
+            dark_fibre: Dark Fibre
+            lease_fibre: Lease fibre
+            wireless: Wireless
+
+        ip_address:
+          name: IP Address
+          custom_attrs:
+            ip_block:
+              name: IP Block
+              values:
+                slash20: /20
+                slash21: /21
+                slash22: /22
+                slash23: /23
+                slash24: /24
+                slash25: /25
+                slash26: /26
+                slash27: /27
+                slash28: /28
+                slash29: /29
+                slash30: /30
+                slash64: /64
+                slash126: /126
+                slash128: /128
+          product_types:
+            ipv4: IPv4
+            ipv6: IPv6
+
+        cross_connect:
+          name: Cross Connect
+          custom_attrs:
+            connectivity_type:
+              name: Connectivity Type
+              values:
+                copper_coax: Copper (coax)
+                100mb_ethernet: 100Mb Ethernet
+                1gb_ethernet: 1Gb Ethernet
+                10gb_ethernet: 10Gb Ethernet
+                single_mode_fiber: Single-Mode Fiber
+                multi_mode_fiber: Multi-Mode Fiber
+                pots: POTs
+                t1: T1
+                e1: E1
+                utp: UTP
+                ds1: DS1
+                ds3: DS3
+          product_types:
+            cross_connect: Cross Connect
+            campus_cross_connect: Campus Cross Connect
+            metro_connect: Metro Connect
+            intra_customer: Intra-customer
+
+    hardware:
+      name: Hardware
+      product_classes:
+        network:
+          name: Network
+          product_types:
+            router: Router
+            switch: Switch
+            firewall: Firewall
+
+    data_center:
+      name: Data Center
+      product_classes:
+        power:
+          name: Power
+          product_types:
+            metered_power: Metered Power
+            flat_power: Flat Power
+
+        space:
+          name: Space
+          product_types:
+            storage_space: Storage Space
+            office_space: Office Space
+
+        data_center_space:
+          name: Data Center Space
+          product_types:
+            cage: Cage
+            suite: Suite
+            powered_shell: Powered Shell
+
+        cabinet:
+          name: Cabinet
+          product_types:
+            enclosed: Enclosed
+            not_enclosed: Not Enclosed
+
+        rack:
+          name: Rack
+          product_types:
+            enclosed: Enclosed
+            not_enclosed: Not Enclosed
+
+        cabinet_space:
+          name: Cabinet Space
+          product_types:
+            enclosed: Enclosed
+            not_enclosed: Not Enclosed
+
+        setup:
+          name: Setup
+          product_types:
+            setup: Setup
+            expedited_setup: Expedited Setup
+
+        support:
+          name: Support
+          product_types:
+            support: Support

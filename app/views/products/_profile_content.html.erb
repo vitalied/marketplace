@@ -1,0 +1,78 @@
+<% if @product %>
+  <div class="profile-info row">
+    <div class="product-info">
+      <div class="product-name">
+        <%= @product.name %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" data-object-url="<%= product_path(@product) %>">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingDetails">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+              DETAILS
+            </a>
+          </div>
+        </div>
+        <div id="collapseDetails" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetails">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <li>
+                Company
+                <span class="attr-value">
+                  <% if current_user.admin? %>
+                    <%= in_place_edit(@product, :company_id, as: :select, collection: hash_options_for_company(@product.company_id),
+                                      data: { search_url: search_companies_path }, inner_class: "select2") %>
+                  <% else %>
+                    <%= @product.company.try(:name) %>
+                  <% end %>
+                </span>
+              </li>
+              <li>
+                Vendor Product Name
+                <span class="attr-value"><%= in_place_edit(@product, :name) %></span>
+              </li>
+              <li>
+                Custom Product Name
+                <span class="attr-value"><%= in_place_edit(@product, :custom_name) %></span>
+              </li>
+              <li>
+                Category
+                <span class="attr-value"><%= in_place_edit(@product, :category, as: :select, collection: hash_options_for_product_category) %></span>
+              </li>
+              <% if @product.category.present? %>
+                <li>
+                  Class
+                  <span class="attr-value"><%= in_place_edit(@product, :product_class, as: :select, collection: hash_options_for_product_class(@product)) %></span>
+                </li>
+              <% end %>
+              <% if @product.category.present? && @product.product_class.present? %>
+                <li>
+                  Type
+                  <span class="attr-value"><%= in_place_edit(@product, :product_type, as: :select, collection: hash_options_for_product_type(@product)) %></span>
+                </li>
+
+                <% custom_attributes_for_product(@product).each do |custom_attr, custom_attr_title| %>
+                  <li>
+                    <%= custom_attr_title %>
+                    <span class="attr-value">
+                      <% if custom_attribute_for_product_values(@product, custom_attr).present? %>
+                        <%= in_place_edit(@product, custom_attr, as: :select, collection: custom_attribute_for_product_values(@product, custom_attr)) %>
+                      <% else %>
+                        <%= in_place_edit(@product, custom_attr) %>
+                      <% end %>
+                    </span>
+                  </li>
+                <% end %>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<tr id="<%= object_to_param(product) %>" data-item-url="<%= product_path(product) %>">
+  <td><%= product.company.try(:name) %></td>
+  <td><%= product.name %></td>
+  <td><%= category_name(product) %></td>
+  <td><%= product_class_name(product) %></td>
+  <td><%= product_type_name(product) %></td>
+  <td class="right-arrow">&nbsp;</td>
+</tr>
