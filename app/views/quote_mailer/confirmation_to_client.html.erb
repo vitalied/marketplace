@@ -1,0 +1,18 @@
+<div>
+  Hi <%= @client.first_name %>,
+</div>
+
+<br/>
+
+<div>
+  Your bandwidth quote request was submitted.
+  <br/>
+  To check the status of the quote request go to
+  <%= link_to quote_request_url(@quote.number), quote_request_url(@quote.number) %>.
+</div>
+
+<br/>
+
+<div>
+  Team
+</div>

@@ -1,0 +1,21 @@
+<div>
+  Hi <%= @company_user.first_name %>,
+</div>
+
+<br/>
+
+<div>
+  You have received a quote request from
+  <%= @quote_user.full_name %>.
+</div>
+
+<div>
+  To view quote request details go to
+  <%= link_to quote_url(@quote.number), quote_url(@quote.number) %>.
+</div>
+
+<br/>
+
+<div>
+  Team
+</div>

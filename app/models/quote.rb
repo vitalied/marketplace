@@ -10,6 +10,7 @@ class Quote < ActiveRecord::Base
   scope :by_company, ->(company_id) { includes(:quote_companies).where(quote_companies: { company_id: company_id}) }
 
   after_create :set_number
+  after_commit :send_confirmation_emails, on: :create
 
   def self.default_sort_column
     "number"
@@ -31,6 +32,15 @@ class Quote < ActiveRecord::Base
 
     def set_number
       self.update_column(:number, "QUOTE-#{self.id}")
+    end
+
+    def send_confirmation_emails
+      QuoteMailer.confirmation_to_client(self).deliver_later
+      self.companies.each do |company|
+        company.company_users.each do |company_user|
+          QuoteMailer.confirmation_to_carrier(self, company_user).deliver_later
+        end
+      end
     end
 
 end
