@@ -53,6 +53,8 @@ group :development do
   gem 'mina'
   gem 'mina-sidekiq', require: false
   gem 'mina-unicorn', require: false
+
+  gem 'letter_opener'
 end
 
 # Use Unicorn as the app server
