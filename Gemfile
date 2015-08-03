@@ -35,6 +35,8 @@ gem 'sinatra', require: nil
 
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 
+gem 'paperclip'
+
 gem 'bootstrap-sass'
 
 gem 'best_in_place'
