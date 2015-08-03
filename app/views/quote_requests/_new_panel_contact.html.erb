@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">3. Enter Contact Info</h3>
+  </div>
+
+  <div class="panel-body">
+    <%= f.fields_for :quote_user do |fqu| %>
+      <fieldset class="contact-fields">
+        <div class="form-group">
+          <%= fqu.label :first_name, class: "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= fqu.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= fqu.label :last_name, class: "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= fqu.text_field :last_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= fqu.label :company, class: "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= fqu.text_field :company, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= fqu.label :email, class: "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= fqu.email_field :email, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= fqu.label :phone, class: "col-sm-2 control-label" %>
+          <div class="col-sm-4">
+            <%= fqu.phone_field :phone, class: "form-control" %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
+  </div>
+</div>

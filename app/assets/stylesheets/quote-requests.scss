@@ -1,0 +1,33 @@
+.mt-20 {
+  margin-top: 20px;
+}
+
+.select2-selection--multiple input {
+  box-shadow: none;
+}
+
+.network-fields,
+.contact-fields {
+  .form-group {
+    margin-bottom: 0;
+
+    label {
+      margin-bottom: 0;
+    }
+
+    .form-control {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.network-fields {
+  border-bottom: 1px dotted;
+  padding-bottom: 10px;
+
+  .line-type {
+    .radio-inline {
+      margin-bottom: 10px;
+    }
+  }
+}

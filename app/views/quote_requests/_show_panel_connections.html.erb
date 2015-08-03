@@ -1,0 +1,18 @@
+<div class="panel panel-default mt-20">
+  <div class="panel-heading">
+    <h3 class="panel-title">1. Networks Details</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="networks-container">
+      <% @quote.quote_items.each do |quote_item| %>
+        <div>
+          <%= network_type(quote_item.network) %>
+          <%= connection_speed(quote_item.port_speed) %>
+          <%= connection_speed(quote_item.access_speed) %>
+          <%= quote_item.location %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

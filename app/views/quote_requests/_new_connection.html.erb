@@ -1,0 +1,111 @@
+<div class="network-row">
+  <div class="summary-panel panel panel-default hidden">
+    <div class="panel-body">
+      <span class="network"></span>
+      <span class="port-speed"></span>
+      <span class="access-speed"></span>
+      <span class="location"></span>
+    </div>
+  </div>
+
+  <fieldset class="network-fields mt-20">
+
+    <div class="network form-group">
+      <%= label_tag quote_item_attribute(:network), "Network", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= select_tag quote_item_attribute(:network), options_for_network, prompt: "Select Network", class: "select-network form-control" %>
+      </div>
+    </div>
+
+    <div class="location form-group hidden">
+      <%= label_tag quote_item_attribute(:location), "Location address", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= text_field_tag quote_item_attribute(:location), nil, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="location-z form-group hidden">
+      <%= label_tag quote_item_attribute(:location_z), "Location Z address", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= text_field_tag quote_item_attribute(:location_z), nil, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="line-type form-group hidden">
+      <%= label_tag :line_type, "Line type", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= label_tag quote_item_attribute(:line_type, nil, false), class: "radio-inline control-label" do %>
+          <%= radio_button_tag quote_item_attribute(:line_type), false %>
+          Metro
+        <% end %>
+
+        <%= label_tag quote_item_attribute(:line_type, nil, true), class: "radio-inline control-label" do %>
+          <%= radio_button_tag quote_item_attribute(:line_type), true %>
+          Long Haul
+        <% end %>
+      </div>
+    </div>
+
+    <div class="port-speed form-group hidden">
+      <%= label_tag quote_item_attribute(:port_speed), "Port speed", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= select_tag quote_item_attribute(:port_speed), options_for_speed, prompt: "Select Port Speed", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="access-speed form-group hidden">
+      <%= label_tag quote_item_attribute(:access_speed), "Access speed", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= select_tag quote_item_attribute(:access_speed), options_for_speed, prompt: "Select Access Speed", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="term form-group hidden">
+      <%= label_tag quote_item_attribute(:term), "Term", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= label_tag quote_item_attribute(:term, nil, 12), class: "checkbox-inline control-label" do %>
+          <%= check_box_tag quote_item_attribute(:term, nil, 12), 12 %>
+          12
+        <% end %>
+
+        <%= label_tag quote_item_attribute(:term, nil, 24), class: "checkbox-inline control-label" do %>
+          <%= check_box_tag quote_item_attribute(:term, nil, 24), 24 %>
+          24
+        <% end %>
+
+        <%= label_tag quote_item_attribute(:term, nil, 36), class: "checkbox-inline control-label" do %>
+          <%= check_box_tag quote_item_attribute(:term, nil, 36), 36 %>
+          36
+        <% end %>
+      </div>
+    </div>
+
+    <div class="router form-group hidden">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= label_tag quote_item_attribute(:router), class: "checkbox-inline control-label" do %>
+          <%= check_box_tag quote_item_attribute(:router) %>
+          <span class="label-text">Do you want Router?</span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="router-z form-group hidden">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= label_tag quote_item_attribute(:router_z), class: "checkbox-inline control-label" do %>
+          <%= check_box_tag quote_item_attribute(:router_z) %>
+          Do you want Router for Location Z?
+        <% end %>
+      </div>
+    </div>
+
+    <div class="qos form-group hidden">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= label_tag quote_item_attribute(:qos), class: "checkbox-inline control-label" do %>
+          <%= check_box_tag quote_item_attribute(:qos) %>
+          Do you want CoS/QoS?
+        <% end %>
+      </div>
+    </div>
+
+  </fieldset>
+</div>

@@ -1,0 +1,19 @@
+<div class="panel panel-default mt-20">
+  <div class="panel-heading">
+    <h3 class="panel-title">2. Carriers Details</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="carriers-container">
+      <% @quote.quote_companies.each do |qc| %>
+        <div>
+          <%= qc.company.name %>
+          -
+          <%= link_to_if qc.offer.present?, qc.offer_file_name, qc.offer.url, target: :blank do %>
+            Quote is Pending View
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="panel panel-default mt-20">
+  <div class="panel-heading">
+    <h3 class="panel-title">3. Contact Info</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="contact-container">
+      <div>
+        <%= @quote.quote_user.first_name %>
+        <%= @quote.quote_user.last_name %>
+      </div>
+      <div>
+        <%= @quote.quote_user.company %>
+      </div>
+      <div>
+        <%= @quote.quote_user.email %>
+      </div>
+      <div>
+        <%= @quote.quote_user.phone %>
+      </div>
+    </div>
+  </div>
+</div>

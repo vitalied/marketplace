@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">2. Select Carrier</h3>
+  </div>
+
+  <div class="panel-body">
+    <div class="network form-group">
+      <%= f.label :company_ids, "Carriers", class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.select :company_ids, options_for_companies, {}, multiple: true, class: "select2 form-control"  %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="hotel-search col-xs-8 col-xs-offset-2 text-center">
+      <h4>Find your Quote Request</h4>
+      <% if flash.notice.present? %>
+        <h5><%= flash.notice %></h5>
+      <% end %>
+
+      <%= form_tag search_quote_requests_path do %>
+        <p>
+          <%= text_field_tag :id, params[:q], class: "form-control input-lg", placeholder: "Enter Quote Request number" %>
+        </p>
+
+        <%= submit_tag "Go!", class: "btn btn-success btn-lg btn-block" %>
+      <% end %>
+
+      <h4 class="mt-20">OR</h4>
+
+      <h3>
+        <%= link_to 'Make a Quote Request', new_quote_request_path, class: "new-quote-link mt-20" %>
+      </h3>
+    </div>
+  </div>
+</div>

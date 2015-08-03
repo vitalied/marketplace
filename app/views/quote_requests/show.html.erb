@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mt-20">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>
+        Quote Request number:
+        <%= @quote.number %>
+      </h3>
+
+      <%= render "show_panel_connections" %>
+    </div>
+  </div>
+
+  <div class="row mt-20">
+    <div class="col-md-8 col-md-offset-2">
+      <%= render "show_panel_carriers" %>
+    </div>
+  </div>
+
+  <div class="row mt-20">
+    <div class="col-md-8 col-md-offset-2">
+      <%= render "show_panel_contact" %>
+    </div>
+  </div>
+</div>

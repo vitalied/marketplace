@@ -1,0 +1,27 @@
+<div class="container">
+  <%= form_for @quote, url: { controller: :quote_requests }, validate: true, class: "form-horizontal" do |f| %>
+    <div class="row mt-20">
+      <div class="col-md-8  col-md-offset-2">
+        <%= render partial: "new_panel_connections", locals: { f: f } %>
+      </div>
+    </div>
+
+    <div class="row mt-20">
+      <div class="col-md-8  col-md-offset-2">
+        <%= render partial: "new_panel_carrier", locals: { f: f } %>
+      </div>
+    </div>
+
+    <div class="row mt-20">
+      <div class="col-md-8  col-md-offset-2">
+        <%= render partial: "new_panel_contact", locals: { f: f } %>
+      </div>
+    </div>
+
+    <div class="row mt-20">
+      <div class="col-md-8  col-md-offset-2">
+        <%= f.submit "Submit", class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div>
