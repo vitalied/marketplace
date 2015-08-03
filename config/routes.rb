@@ -6,6 +6,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  root "quote_requests#index"
+
+  resources :quote_requests, path: :quotes, only: [:index, :show, :new, :create] do
+    get :add_network, on: :collection
+    match :search, on: :collection, via: [:get, :post]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
