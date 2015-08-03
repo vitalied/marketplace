@@ -1,0 +1,48 @@
+<% if @quote %>
+  <div class="profile-info row">
+    <div class="profile-info-label">
+      Number:
+      <span class="profile-info-value">
+        <%= @quote.number %>
+      </span>
+    </div>
+  </div>
+
+  <div class="row" data-object-url="<%= quote_path(@quote) %>">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingDetails">
+          <div class="panel-title">
+            <a data-toggle="collapse" href="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+              OFFERS
+            </a>
+          </div>
+        </div>
+        <div id="collapseDetails" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetails">
+          <div class="panel-body">
+            <ul class="list-attrs list-unstyled">
+              <% quote_companies(@quote).each do |qc| %>
+                <li>
+                  <%= qc.company.name %>
+                  <span class="attr-value">
+                    <%= link_to_if qc.offer.present?, qc.offer_file_name, qc.offer.url, target: :blank do %>
+                      -none-
+                    <% end %>
+                  </span>
+                </li>
+              <% end %>
+
+              <% if current_user.company? %>
+                <%= form_for @quote.quote_companies.new, url: upload_offer_quote_path(@quote) do |f| %>
+                  <%= f.file_field :offer %>
+
+                  <%= f.submit "Submit offer" %>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

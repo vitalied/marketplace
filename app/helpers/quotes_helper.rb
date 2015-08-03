@@ -42,4 +42,11 @@ module QuotesHelper
     SPEEDS[speed]
   end
 
+  def quote_companies(quote)
+    res = quote.quote_companies
+    res = res.by_company(current_user.userable_id) if current_user.company?
+
+    res
+  end
+
 end
