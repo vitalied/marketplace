@@ -8,6 +8,16 @@ class Ability
       cannot :upload_offer, Quote
     end
 
+    if user.company?
+      can [:read, :upload_offer], Quote do |quote|
+        quote.quote_companies.by_company(user.userable_id).present?
+      end
+      can [:read, :update], Company, id: user.userable_id
+      can :manage, [Product, Location], company_id: user.userable_id
+      can :read, User, userable_id: user.userable_id
+      can :update, User, id: user.id
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
