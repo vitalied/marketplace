@@ -32,6 +32,8 @@ gem 'kaminari'
 gem 'sidekiq'
 gem 'sinatra', require: nil
 
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
