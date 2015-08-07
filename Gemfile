@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'figaro'
+gem 'config', '~> 1.0.0.beta3'
 
 gem 'sidekiq'
 gem 'sinatra', require: nil
