@@ -64,10 +64,10 @@ group :development do
   # deploy
   gem 'mina'
   gem 'mina-sidekiq', require: false
-  gem 'mina-unicorn', require: false
+  #gem 'mina-unicorn', require: false
 
   gem 'letter_opener'
 end
 
 # Use Unicorn as the app server
-gem 'unicorn', group: :production
+#gem 'unicorn', group: :production

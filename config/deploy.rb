@@ -1,10 +1,10 @@
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
-require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+# require 'mina/rvm'    # for rvm support. (http://rvm.io)
 require 'mina_sidekiq/tasks'
-require 'mina/unicorn'
+# require 'mina/unicorn'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -12,7 +12,7 @@ require 'mina/unicorn'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :repository, 'git@example.com:marketplace/marketplace.git'
+set :repository, 'https://github.com/vitalied/marketplace.git'
 set :branch, 'master'
 
 if ENV['PROD']
@@ -20,17 +20,17 @@ if ENV['PROD']
   set :deploy_to, '/mnt/marketplace'
   set :user, 'app'
 else
-  set :domain, 'example.com'
-  set :deploy_to, '/home/deploy/marketplace'
+  set :domain, 'hrs.hoteluri.md'
+  set :deploy_to, '/srv/apps/hrs'
   set :user, 'deploy'
 end
 
 set :forward_agent, true
-set :port, '22'
+set :port, '12222'
 
 # For system-wide RVM install.
 # set :rvm_path, '/usr/local/rvm/bin/rvm'
-set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
+# set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -46,10 +46,10 @@ task :environment do
   }
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .ruby-version or .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+  invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  invoke :'rvm:use[ruby-2.2.2@marketplace]'
+  # invoke :'rvm:use[ruby-2.2.2@marketplace]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -96,7 +96,7 @@ task :deploy => :environment do
 
     to :launch do
       invoke :'sidekiq:restart'
-      invoke :'unicorn:restart'
+      # invoke :'unicorn:restart'
     end
   end
 end
